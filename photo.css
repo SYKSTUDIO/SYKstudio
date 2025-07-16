@@ -1,0 +1,155 @@
+/* 全局样式 */
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #fff;
+    color: #000000;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: "Oswald", sans-serif;
+  }
+  
+  header {
+    position: fixed;         /* 固定在屏幕上 */
+    top: 0;                  /* 顶部对齐 */
+    left: 0;
+    width: 100%;             /* 占满全宽 */
+    background: inherit;     /* 背景色继承 body 渐变 */
+    z-index: 1000;           /* 保证它在最前层 */
+  }
+  
+
+/* 顶部整体容器（横向排列） */
+.header-inner {
+  display: flex;                        /* 横向排列 */
+  justify-content: space-between;      /* 左右对齐 */
+  align-items: center;                 /* 垂直居中 */
+  padding: 16px 20px;                  /* 内边距 */
+}
+
+/* 左侧品牌文字（“Festivity”） */
+.header-inner .navbar-brand {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;                  /* 保持继承字体颜色 */
+}
+
+/* 右侧导航菜单列表 */
+.header-inner nav ul {
+  display: flex;
+  gap: 120px;                          /* 每个菜单项之间的间距 */
+  align-items: center;
+  list-style: none;                    /* 去除默认圆点 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 每个菜单链接的样式 */
+.header-inner nav ul a {
+  font-weight: 500;
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 悬停时显示下划线动画 */
+.header-inner nav ul a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: all 0.5s;
+}
+
+.header-inner nav ul a:hover::after {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+  /* 固定文字位置 */
+  .fixed-text {
+    position: fixed;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .top-left {
+    top: 50%;
+    left: 20px;
+  }
+  
+  .top-right {
+    top: 50%;
+    right: 20px;
+  }
+  
+  .bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .bottom-right {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  /* 可滚动内容区 */
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    margin: 30px;;
+  }
+  
+  /* 中间图片 */
+  .image-container {
+    width: 60vw;
+    height: fit-content;
+    max-width: 700px;
+    max-height: 700px;
+    background-color: #727272;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  /* 图片下方文字 */
+  .caption {
+    text-align: center;
+    padding: 50px 20px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.6;
+    
+  }
+  

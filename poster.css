@@ -1,0 +1,450 @@
+body {
+    background-color:white;
+    color: black;
+    font-size: var(--size-font);
+    margin: 0;
+    padding: 0;
+    font-family: "Public Sans", sans-serif;
+    font-size: 50px;
+  }
+  
+
+  
+  .cloneable {
+    padding: var(--container-padding);
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    font-size: 1vw;
+    color: black;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  
+  p{
+    margin: 0px;
+  }
+  
+  .page {
+    z-index: 0;
+    inset: var(--gap);
+    position: absolute;
+  }
+  
+  .main {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .main-col {
+    width: 50%;
+    height: 100%;
+  }
+  
+  .main-img__list {
+    width: 30em;
+    height: 40em;
+    position: relative;
+    margin-top: 10em; 
+    margin-right: 20em; 
+
+
+  }
+  
+  .main-img__item {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  
+  .image {
+    object-fit: cover;
+    border-radius: .5em;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .main-title__list {
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    position: relative;
+    padding-right:10em;
+    padding-top: 23%;
+
+  }
+  
+  .main-col:last-child {
+    padding-top: 5em;
+    box-sizing: border-box;
+  }
+  
+
+
+
+
+  .main-title__item {
+    justify-content: flex-start;
+    align-items: center;
+    height: 1.25em;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    color: black;
+    transition: opacity .2s;
+    display: flex;
+    position: relative;
+   
+  }
+  
+  .main-title {
+    letter-spacing: -.03em;
+    white-space: nowrap;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1;
+    color: black
+  }
+  
+  .main-title__list:hover:has( .main-title__item:hover) .main-title__item:not(:hover){
+      opacity: 0.45;
+  }
+  
+  .main-title::after{
+      position: absolute;
+    content: '';
+    top: 50%;
+    right: -.3em;
+    width: 0.75em;
+    height: 0.15em;
+    border-radius: 100em;
+    background: currentColor;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    transform: translate(100%, 0%) scale(0);
+  }
+  
+  .main-title__item:hover .main-title::after{
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+    width: 0.15em;
+  }
+  
+
+
+
+
+
+
+
+
+  .button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+  
+  .button.text {
+    transition: opacity .2s;
+  }
+  
+  .button.text:hover {
+    opacity: .7;
+  }
+  
+  .overlay-wrap {
+    z-index: 2;
+    pointer-events: none;
+    padding-top: calc(var(--gap) * 3);
+    position: absolute;
+    inset: 0%;
+  }
+  
+  .overlay-item {
+    z-index: 1;
+    pointer-events: auto;
+    padding-bottom: 16em;
+    display: none;
+    position: relative;
+  }
+  
+  .overlay-item.active {
+    display: block;
+  }
+  
+  .overlay-hero {
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 7.5em;
+    display: flex;
+  }
+  
+  .overlay-title__wrap {
+    text-align: center;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 9em;
+    display: flex;
+    position: relative;
+  }
+  
+  .overlay-title__wrap .main-title{
+      position: absolute;
+    font-size: 9em;
+  }
+  
+  .overlay-img__wrap {
+    width: 42em;
+    height: 64em;
+  }
+  
+  .overlay-row {
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 6em;
+    display: flex;
+  }
+  
+  .overlay-col {
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+    flex-flow: column;
+    display: flex;
+  }
+  
+  .overlay-col.col-left {
+    max-width: 26em;
+    transform: translate(0, 50%);
+    
+  }
+  
+  .overlay-col.col-right {
+    max-width: 35em;
+  }
+  
+  .overlay-col__img {
+    height: 26em;
+  }
+  
+  .paragraph {
+    text-indent: 4em;
+    margin-bottom: 0;
+    font-size: 1.25em;
+    line-height: 1.25;
+  }
+  
+  .overlay-nav {
+    z-index: 2;
+    pointer-events: auto;
+    justify-content: space-between;
+    align-items: flex-end;
+    display: none;
+    position: absolute;
+    inset: auto 0% 0%;
+    overflow: hidden;
+    color: inherit;
+  }
+  
+  .text-reg {
+    margin-bottom: 0;
+    font-size: 1.125em;
+    line-height: 1.25;
+  }
+  
+  .button.text{
+    color: inherit;
+  }
+  
+  .osmo-credits {
+    z-index: 999;
+    pointer-events: none;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 4em;
+    padding: 1em 2em;
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+  
+  .osmo-credits__p {
+    pointer-events: auto;
+    color: #efeeec80;
+    text-align: center;
+    margin: 0;
+    font-family: PP Neue Montreal, Arial, sans-serif;
+    font-size: 1.125em;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  
+  .osmo-credits__p-a {
+    color: #efeeec;
+  }
+  
+  @font-face {
+    font-family: 'PP Neue Montreal';
+    src: url('https://cdn.prod.website-files.com/6819ed8312518f61b84824df/6819ed8312518f61b84825ba_PPNeueMontreal-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+
+
+
+  .rig-cat {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+
+
+
+
+  .side-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1em;
+  }
+  
+  .side-menu__item {
+    position: relative;
+    font-family: "Public Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    color: black;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  /* 下划线动画 */
+  .side-menu__item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -0.3em;
+    width: 0.75em;
+    height: 0.15em;
+    background: currentColor;
+    border-radius: 100em;
+    transform: translate(100%, 0%) scale(0);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+   
+  }
+  
+  .side-menu__item:hover::after {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+    width: 0.15em;
+  }
+  
+  /* 淡出未 hover 项 */
+  .side-menu__list:hover .side-menu__item:not(:hover) {
+    opacity: 0.45;
+  }
+  
+
+  .hidden {
+    display: none;
+  }
+
+  .video-fit {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+      
+  }
+  .video-container {
+    height: 40em;       /* 原本是 26em，可以自由调整 */
+    margin-top: -1em;
+   
+  }
+  
+
+  .eye-img-container {
+    height: 35em;
+    border-radius: 1em;
+    overflow: hidden; /* 防止图片溢出圆角 */
+  }
+  
+  .eye-img-container .image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+  }
+  
+  .mp-social-container {
+    position: absolute;         /* 或 fixed，如果你用的是方案 B */
+    bottom: -10em;
+    right: 3em;
+    width: 28em;                /* ✅ 调小容器宽度（原来是 30em） */
+    max-width: 90vw;
+    z-index: 99;
+    padding: 0.5em;
+    border-radius: 1em;
+    overflow: hidden;
+  }
+
+  .mp-social-img {
+    width: 100%;
+    height: auto;               /* ✅ 保证等比缩放，不拉伸 */
+    object-fit: contain;        /* ✅ 显示完整图像，不裁剪 */
+    border-radius: 1em;
+    display: block;
+  }
+  
+  .sky1-container {
+    margin-top: -10em;
+    width: 43em;   
+    height: auto;            /* 明确指定大尺寸容器 */
+    max-width: 100vw;
+    margin: 4em auto;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+  
+  .sky1-img {
+    width: 100%;              /* 填满容器 */
+    height: auto;
+    object-fit: contain;      /* 保证完整显示 */
+    display: block;
+    border-radius: 1em;
+  }
+  
