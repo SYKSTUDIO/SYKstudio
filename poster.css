@@ -8,7 +8,13 @@ body {
     font-size: 50px;
   }
   
-
+  .side-menu__item a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   
   .cloneable {
     padding: var(--container-padding);
@@ -41,6 +47,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: flex-end;
   }
   
   .main-col {
@@ -52,8 +59,9 @@ body {
     width: 30em;
     height: 40em;
     position: relative;
-    margin-top: 10em; 
-    margin-right: 20em; 
+    margin-top: 6em; 
+    margin-right: 15em; 
+    transform: translateX(4em);
 
 
   }
@@ -98,7 +106,7 @@ body {
   .main-title__item {
     justify-content: flex-start;
     align-items: center;
-    height: 1.25em;
+    height: auto;     
     font-size: 28px;
     font-weight: 500;
     line-height: 1;
@@ -111,12 +119,12 @@ body {
   
   .main-title {
     letter-spacing: -.03em;
-    white-space: nowrap;
+    white-space: normal; 
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 1em;
+    font-size: 45px;
     font-weight: 500;
-    line-height: 1;
+    line-height: 60px;
     color: black
   }
   
@@ -412,12 +420,12 @@ body {
   
   .mp-social-container {
     position: absolute;         /* 或 fixed，如果你用的是方案 B */
-    bottom: -10em;
+    bottom: -20em;
     right: 3em;
     width: 28em;                /* ✅ 调小容器宽度（原来是 30em） */
     max-width: 90vw;
     z-index: 99;
-    padding: 0.5em;
+    padding: 5em;
     border-radius: 1em;
     overflow: hidden;
   }
@@ -430,9 +438,13 @@ body {
     display: block;
   }
   
+
+
+
+  
   .sky1-container {
     margin-top: -10em;
-    width: 43em;   
+    width: 35em;   
     height: auto;            /* 明确指定大尺寸容器 */
     max-width: 100vw;
     margin: 4em auto;
@@ -445,6 +457,136 @@ body {
     height: auto;
     object-fit: contain;      /* 保证完整显示 */
     display: block;
+    border-radius: 1em;
+  }
+  
+  .overlay-gallery {
+    max-width: 2000px; /* 控制整体最大宽度 */
+    margin: 20em auto 0; 
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+  }
+  
+  .overlay-gallery .overlay-col {
+    flex: 1 1 30%;
+    max-width: 30%;
+  }
+  
+  .overlay-gallery .image {
+    width: 100%;
+    height: auto;
+    border-radius: 1em;
+    display: block;
+  }
+
+
+
+
+
+  
+/* 默认图片样式 */
+.overlay-col__img img {
+    cursor: default;
+    transition: transform 0.4s ease;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 可点击 */
+  .overlay-gallery .overlay-col__img img.clickable-image {
+    cursor: zoom-in;
+  }
+  
+  /* 黑色背景遮罩 */
+  #image-overlay-bg {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* 显示遮罩 */
+  #image-overlay-bg {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9998; /* 小于放大的图片 9999 */
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+ /* 默认状态 */
+.overlay-col__img img {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+ /* 可点击图片 */
+.clickable-image {
+  cursor: zoom-in;
+  transition: transform 0.4s ease;
+}
+
+/* 放大后的图片样式 */
+.clickable-image.enlarged {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  cursor: zoom-out;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+  
+  
+  /* 放大时隐藏 header */
+  header.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+
+  .overlay-gallery1 {
+    max-width: 2000px;
+    margin-top: 30em;  /* 可调数值：6em~10em 通常就够 */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+  }
+
+
+
+
+
+  .vertical-photo-group {
+    display: flex;
+    flex-direction: row;     /* 横向排列 */
+    justify-content: center; /* 居中对齐 */
+    align-items: flex-start;
+    gap: 2em;
+    margin: 5em auto;
+    max-width: 90vw;          /* 控制整体最大宽度 */
+    flex-wrap: wrap;          /* 小屏时自动换行 */
+  }
+  
+  .vertical-photo img {
+    width: 100%;
+    max-width: 22em;          /* 每张图最大宽度 */
+    height: auto;
     border-radius: 1em;
   }
   

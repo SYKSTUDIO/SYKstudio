@@ -161,4 +161,54 @@ window.addEventListener('DOMContentLoaded', () => {
       overlayWrap.style.paddingTop = `${headerHeight}px`;
     }
   });
+
+
+
+  
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".clickable-image");
+    const overlayBg = document.createElement("div");
+    overlayBg.id = "image-overlay-bg";
+    document.body.appendChild(overlayBg);
+  
+    const header = document.querySelector("header");
+  
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        const isEnlarged = img.classList.contains("enlarged");
+  
+        if (!isEnlarged) {
+          // 放大图片
+          img.classList.add("enlarged");
+          overlayBg.classList.add("visible");
+          if (header) header.classList.add("hidden");
+          // 确保其他图片没有 enlarged
+          images.forEach(other => {
+            if (other !== img) other.style.visibility = "hidden";
+          });
+        } else {
+          // 缩小图片
+          img.classList.remove("enlarged");
+          overlayBg.classList.remove("visible");
+          if (header) header.classList.remove("hidden");
+          images.forEach(other => {
+            other.style.visibility = "visible";
+          });
+        }
+      });
+    });
+  
+    // 如果点击遮罩也缩小
+    overlayBg.addEventListener("click", () => {
+      const enlarged = document.querySelector(".clickable-image.enlarged");
+      if (enlarged) enlarged.click();
+    });
+  });
+
+
+
+
+
+
   

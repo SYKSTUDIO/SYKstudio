@@ -80,7 +80,7 @@ body {
 
   .fixed-text {
     position: fixed;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #333;
   }
@@ -142,4 +142,74 @@ body {
     
   }
 
+  .side-menu__item a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
+
+
+
+  .rig-cat {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+
+
+
+
+  .side-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1em;
+  }
+  
+  .side-menu__item {
+    position: relative;
+    font-family: "Public Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    color: black;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  /* 下划线动画 */
+  .side-menu__item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -0.3em;
+    width: 0.75em;
+    height: 0.15em;
+    background: currentColor;
+    border-radius: 100em;
+    transform: translate(100%, 0%) scale(0);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+   
+  }
+  
+  .side-menu__item:hover::after {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+    width: 0.15em;
+  }
+  
+  /* 淡出未 hover 项 */
+  .side-menu__list:hover .side-menu__item:not(:hover) {
+    opacity: 0.45;
+  }
+  
