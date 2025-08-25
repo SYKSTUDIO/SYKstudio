@@ -262,15 +262,16 @@ body {
   }
   
   .overlay-nav {
-    z-index: 2;
-    pointer-events: auto;
+    position: fixed;          /* 固定位置 */
+    bottom: 2em;              /* 距离底部 2em */
+    left: 0;
+    width: 100%;
+    display: flex;            /* 使用 flex 分左右 */
     justify-content: space-between;
-    align-items: flex-end;
-    display: none;
-    position: absolute;
-    inset: auto 0% 0%;
-    overflow: hidden;
-    color: inherit;
+    padding: 0 2em;           /* 左右内边距 */
+    z-index: 1000;
+    pointer-events: auto;
+    color: black;
   }
   
   .text-reg {
